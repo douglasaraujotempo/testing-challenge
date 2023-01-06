@@ -7,16 +7,7 @@ export default function List({history, data, navigateTo, columns = ['Name'], col
 
   const [items, setItems] = useState([]);
 
-  React.useEffect(() => {
-    let newItems = [...data];
-    if (search) {
-      newItems = newItems.filter((str) => {
-        let values = Object.values(str);
-        return values.filter(v => v.toLowerCase().indexOf(search.toLowerCase()) >= 0).length > 0;
-      });
-    }
-    setItems(newItems);
-  }, [search, data]);
+  
 
   return (
     <ListBody>
@@ -35,4 +26,15 @@ export default function List({history, data, navigateTo, columns = ['Name'], col
       }
     </ListBody>
   )
+
+  React.useEffect(() => {
+    let newItems = [...data];
+    if (search) {
+      newItems = newItems.filter((str) => {
+        let values = Object.values(str);
+        return values.filter(v => v.toLowerCase().indexOf(search.toLowerCase()) >= 0).length > 0;
+      });
+    }
+    setItems(newItems);
+  }, [search, data]);
 }
