@@ -20,7 +20,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       - name: SonarQube Quality Gate check
         id: sonarqube-quality-gate-check
-        uses: SonarSource/sonarcloud-quality-gate-action@master
+        uses: SonarSource/sonarqube-quality-gate-action@master
         with:
           scanMetadataReportFile: .sonarqube\out\.sonar\report-task.txt
         # Force to fail step after specific time.
